@@ -1,6 +1,6 @@
 *{
-		margin: 0;
-		padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 /*----- Colores-----
@@ -43,13 +43,14 @@
 	color:rgb(3,101,140);
 
 }
+
 .cuerpos{
 	font-family: Roboto-Light;
 	color: rgb(3,165,191);
 }
 .subtitulos{
 	font-family: Roboto-Regular;
-
+	color:rgb(3,101,140);
 }
 
 .fa-user-circle{
@@ -61,7 +62,7 @@
 	 text-decoration-style: solid;
 } */
 
-.active-sub{
+/*.active-sub{
 	margin-bottom: 2px; 
 	border-bottom: white solid 2px;
 }
@@ -69,128 +70,84 @@
 .contenedor{
 	margin-top: 5%;
 }
+*/
 
-.slogan{
-	margin-top: 25%;
+
+
+/*----Abre Admin----*/
+
+.contenedor{
+	margin-top:5%;
+	margin-bottom:5%;
 }
 
-.slogan-info{
-	margin-top: 5%;
-	text-align: center;
+.fa-bars{
+	color: white;
+	font-size: 2em;
+	margin-right: 12px;
+	cursor:pointer;
 }
-.slogan-boton{
-	margin-top: 30%;
+
+/*----Registro----*/
+
+.modal-registro{
+	margin:0 auto;
 	width: 100%;
-	padding: 20px 20px;
-	background-color: rgb(3,101,140);
-    border-radius: 35px;
-    font-family: Roboto-Bold;
-   	color: white;
-   	box-shadow: 0px 3px 4px 1px rgba(0,0,0,0.35);
- 
-}
-.fa-android{
-	font-size: 25px;
-}
-
-.registro{
-	margin:0 auto;
-	width: 90%;
-	border-radius:10%;
-	padding: 20px 20px;
-	/*box-shadow: 1px 6px 6px 0px rgba(0,0,0,0.35);*/
+	border-radius:35px;
+	padding:4%;
+	font-size: 15px;
 	box-shadow: 0px 3px 4px 1px rgba(0,0,0,0.35);
 }
+.modal-registro input, .modal-registro select, .custom-file-input, .custom-file-label{
+	border-radius:10px;
+}
 
-.registro legend{
-	text-align: center;
+.active-item{
+	background-color: rgb(3,165,191) ;
+	color: rgb(249,249,245);
+}
+
+.modal-registro legend{
 	font-size: 2em;
-	font-family: Roboto-Bold;
+	margin-bottom: 4%;
+}
+
+.modal-registro button{
 	color: rgb(3,101,140);
-
+    border-radius: 10px ; 
+    font-family: Roboto-Regular;
 }
 
-.registro input{
-	border-radius: 35px ;
-	text-align: center;
-}
+/*----Actualizar----*/
+/*----Eliminar----*/
+/* .img-eliminar{
 
-.registrar-boton{
-	margin-top: 5%;
 	width: 80%;
-	padding: 20px 20px;
+	height: auto;
+	object-fit: cover;
+}
+
+ */
+
+.botones{
+	background-color: transparent;
+	cursor:pointer;
+	outline:none;
+	border: none;
+}
+
+.acciones{
+	width: 30px;
+	height: 30px;
+
+}
+acronym{
+	text-decoration: none;
+}
+.modal-delete button{
 	color: rgb(3,101,140);
-    border-radius: 35px ; 
-    font-family: Roboto-Bold;
-   	color: rgb(3,101,140);
-
-}
-
-a{
-	outline: none;
+    border-radius: 10px ; 
+    font-family: Roboto-Regular;
 }
 
 
-.inicio-sesion{
-	margin:0 auto;
-	margin-top: 15%;
-	width: 90%;
-	border-radius:10%;
-	padding: 20px 20px;
-	box-shadow: 0px 3px 4px 1px rgba(0,0,0,0.35);
-}
-
-.inicio-sesion legend{
-	margin: 10% 0 15% 0;
-	font-size: 2em;
-	font-family: Roboto-Bold;
-	color: rgb(3,101,140);
-
-}
-
-.inicio-sesion input{
-	border-radius: 35px ;
-	text-align: center;
-}
-
-
-
-.main-section-login{
-	margin: 0 auto;
-	margin-top: 50%;
-	margin-bottom: 15%;
-	padding: 0;
-}
-
-.modal-content{
-	border-radius:10%;
-	box-shadow: 0px 3px 4px 1px rgba(0,0,0,0.35);
-}
-
-.user-img-login{
-	margin-top: -90px;
-	margin-bottom: 10px;
-	
-}
-
-
-.user-img-login img{
-	width: 160px;
-	height: 160px;
-	border-radius: 50%;
-    box-shadow: 0px 0px 3px #848484;
-    background: rgba(255, 255, 255, 0.815);
-}
-
-.main-section-login h1{
-	margin-bottom:20px;
-	color: grey;
-}
-
-.fa-chevron-right {
-	color: rgb(3,101,140);
-}
-
-.fa-chevron-left {
-	color: rgb(3,101,140);
-}

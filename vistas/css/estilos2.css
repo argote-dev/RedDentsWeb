@@ -1,0 +1,119 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*----- Colores-----
+
+.colores{
+	color: rgb(3,103,165);
+	color: rgb(3,101,140);
+	color: rgb(3,165,191);
+	color: rgb(249,249,245);
+}*/
+
+@font-face{
+	font-family: 'Roboto-Bold';
+	src:url('../webfonts/Roboto-Bold.ttf');	
+}
+
+@font-face{
+	font-family: 'Roboto-Light';
+	src:url('../webfonts/Roboto-Light.ttf');
+}
+
+@font-face{
+	font-family: 'Roboto-Regular';
+	src:url('../webfonts/Roboto-Regular.ttf');
+}
+
+.logo{
+	height: 50px;
+	width: auto;
+}
+
+.barnav{
+	background-color: rgb(3,101,140);
+}
+
+
+.titulos{
+	font-family: Roboto-Regular;
+	font-weight: bold;
+	color:rgb(3,101,140);
+
+}
+
+.cuerpos{
+	font-family: Roboto-Light;
+	color: rgb(3,165,191);
+}
+.subtitulos{
+	font-family: Roboto-Regular;
+	color:rgb(3,101,140);
+}
+
+.fa-user-circle{
+	font-size: 30px;
+}
+
+/* .active{
+	 text-decoration-line: underline;
+	 text-decoration-style: solid;
+} */
+
+/*.active-sub{
+	margin-bottom: 2px; 
+	border-bottom: white solid 2px;
+}
+
+.contenedor{
+	margin-top: 5%;
+}
+*/
+
+
+
+/*----Abre Admin----*/
+
+.contenedor{
+	margin-top:5%;
+	margin-bottom:5%;
+}
+
+.fa-bars{
+	color: white;
+	font-size: 2em;
+	margin-right: 12px;
+	cursor:pointer;
+}
+
+/*----Registro Odontologo----*/
+
+.modal-registro{
+	margin:0 auto;
+	width: 100%;
+	border-radius:35px;
+	padding:4%;
+	font-size: 15px;
+	box-shadow: 0px 3px 4px 1px rgba(0,0,0,0.35);
+}
+.modal-registro input, .modal-registro select, .custom-file-input, .custom-file-label{
+	border-radius:10px;
+}
+
+.active-item{
+	background-color: rgb(3,165,191) ;
+	color: rgb(249,249,245);
+}
+
+.modal-registro legend{
+	font-size: 2em;
+	margin-bottom: 4%;
+}
+
+.modal-registro button{
+	color: rgb(3,101,140);
+    border-radius: 10px ; 
+    font-family: Roboto-Regular;
+}
