@@ -22,7 +22,7 @@ class Controlador{
 
     /**
      * Método para determinar que modulo de la vista se imprime en la 
-     plantilla apartir de la variable GET 'p'
+     * plantilla apartir de la variable GET 'p'
      */
     public function enlancePaginasControl(){
 
@@ -37,14 +37,17 @@ class Controlador{
     	include_once($rta);
     }
 
+
+
     #            Métodos para el CRUD de Odontologo
     #----------------------------------------------------------------------
     #
 
     
-
     /**
-     * Método para listar a los odontologos de un consultorio
+     * Método que a partir del método listarOdontologosModelo() puede obtener 
+     * un array con los odontologos para listarlo en una tabla o un valor 
+     * false con el cual enviara un mensaje 
      */
     public function listarOdontologosControl(){
 
@@ -69,7 +72,7 @@ class Controlador{
                         <td>'.$odontologo->ODO_GENERO.'</td>
                         <td>'.$odontologo->ODO_FOTO.'</td>
                         <td>
-                            <a class="botones" href="http://localhost/WEBSERVICES/buscarOdontologo/'.$odontologo->ODO_ID.'"><acronym lang="es" title="Actualizar"><img src="vistas/img/editar.png" class="acciones"></acronym></a>
+                            <a class="botones" href="#"><acronym lang="es" title="Actualizar"><img src="vistas/img/editar.png" class="acciones"></acronym></a>
                             <button type="button" class="botones" data-toggle="modal" data-target="#exampleModalCenter"><acronym lang="es" title="Eliminar"><img src="vistas/img/eliminar.png" class="acciones"></acronym></button>
                         </td>
                     </tr>';
@@ -82,7 +85,9 @@ class Controlador{
     }
 
     /**
-     * Método registrar un odontologo en un consultorio
+     * Método para validar los campos del formulario de registro de odontologo
+     * y guardarlos en un array asociativo y enviarlos al método 
+     * registrarOdontologoModelo()
      */
     public function registroOdontologosControl(){
 
