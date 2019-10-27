@@ -1,15 +1,29 @@
 <?php 
 require 'modelos/paginas.php';
-require 'modelos/administrador/odontologos.php';
-require 'modelos/administrador/pacientes.php';
+require 'modelos/odontologo.php';
+
 
 class Controlador{
 
+    private $objOdontologo;
+
+    function __construct()
+    {
+        $this->objOdontologo = new Odontologo();
+    }
+
+    /**
+     * Método para imprimir la plantilla 
+     */
     public function mostrarPlantilla(){
 
     		include_once("vistas/plantilla.php");
     }
 
+    /**
+     * Método para determinar que modulo de la vista se imprime en la 
+     plantilla apartir de la variable GET 'p'
+     */
     public function enlancePaginasControl(){
 
     	if (isset($_GET['p'])) {
@@ -23,67 +37,83 @@ class Controlador{
     	include_once($rta);
     }
 
-    public function listarOdontologosControl(){
-        $arOdontologos = listarOdontologosModelo();
+    #            Métodos para el CRUD de Odontologo
+    #----------------------------------------------------------------------
+    #
 
-        foreach ($arOdontologos as $odontologo) {
-            echo '
-                <tr>
-                    <td>'.$odontologo->ODO_ID.'</td>
-                    <td>'.$odontologo->ODO_TIPO_ID.'</td>
-                    <td>'.$odontologo->ODO_PRIMER_NOMBRE.'</td>
-                    <td>'.$odontologo->ODO_SEGUNDO_NOMBRE.'</td>
-                    <td>'.$odontologo->ODO_PRIMER_APELLIDO.'</td>
-                    <td>'.$odontologo->ODO_SEGUNDO_APELLIDO.'</td>
-                    <td>'.$odontologo->ODO_DIRECCION.'</td>
-                    <td>'.$odontologo->ODO_TELEFONO.'</td>
-                    <td>'.$odontologo->ODO_ESPECIALIDAD.'</td>
-                    <td>'.$odontologo->ODO_FECNACIMIENTO.'</td>
-                    <td>'.$odontologo->ODO_FECREGISTRO.'</td>
-                    <td>'.$odontologo->ODO_GENERO.'</td>
-                    <td>'.$odontologo->ODO_FOTO.'</td>
-                    <td>
-                        <a class="botones" href="http://localhost/WEBSERVICES/buscarOdontologo/'.$odontologo->ODO_ID.'"><acronym lang="es" title="Actualizar"><img src="vistas/img/editar.png" class="acciones"></acronym></a>
-                        <button type="button" class="botones" data-toggle="modal" data-target="#exampleModalCenter"><acronym lang="es" title="Eliminar"><img src="vistas/img/eliminar.png" class="acciones"></acronym></button>
-                    </td>
-                </tr>
-                ';
+    
+
+    /**
+     * Método para listar a los odontologos de un consultorio
+     */
+    public function listarOdontologosControl(){
+
+        $arOdontologos = $this->objOdontologo->listarOdontologosModelo();
+
+        if ($arOdontologos) {
+
+            foreach ($arOdontologos as $odontologo) {
+                echo '
+                    <tr>
+                        <td>'.$odontologo->ODO_ID.'</td>
+                        <td>'.$odontologo->ODO_TIPO_ID.'</td>
+                        <td>'.$odontologo->ODO_PRIMER_NOMBRE.'</td>
+                        <td>'.$odontologo->ODO_SEGUNDO_NOMBRE.'</td>
+                        <td>'.$odontologo->ODO_PRIMER_APELLIDO.'</td>
+                        <td>'.$odontologo->ODO_SEGUNDO_APELLIDO.'</td>
+                        <td>'.$odontologo->ODO_DIRECCION.'</td>
+                        <td>'.$odontologo->ODO_TELEFONO.'</td>
+                        <td>'.$odontologo->ODO_ESPECIALIDAD.'</td>
+                        <td>'.$odontologo->ODO_FECNACIMIENTO.'</td>
+                        <td>'.$odontologo->ODO_FECREGISTRO.'</td>
+                        <td>'.$odontologo->ODO_GENERO.'</td>
+                        <td>'.$odontologo->ODO_FOTO.'</td>
+                        <td>
+                            <a class="botones" href="http://localhost/WEBSERVICES/buscarOdontologo/'.$odontologo->ODO_ID.'"><acronym lang="es" title="Actualizar"><img src="vistas/img/editar.png" class="acciones"></acronym></a>
+                            <button type="button" class="botones" data-toggle="modal" data-target="#exampleModalCenter"><acronym lang="es" title="Eliminar"><img src="vistas/img/eliminar.png" class="acciones"></acronym></button>
+                        </td>
+                    </tr>';
+            }
+        }
+        else{
+            echo "<h3 style='color:red;'>No Hay Odontologos Registrados</h3>";
         }
         
     }
 
-    public function listarPacientesControl(){
-        $arPacientes = listarPacientesModelo();
-
-        foreach ($arPacientes as $pacientes) {
-            echo '
-                <tr>
-                    <td>'.$pacientes->PAC_ID.'</td>
-                    <td>'.$pacientes->PAC_TIPO_ID.'</td>
-                    <td>'.$pacientes->PAC_PRIMER_NOMBRE.'</td>
-                    <td>'.$pacientes->PAC_SEGUNDO_NOMBRE.'</td>
-                    <td>'.$pacientes->PAC_PRIMER_APELLIDO.'</td>
-                    <td>'.$pacientes->PAC_SEGUNDO_APELLIDO.'</td>
-                    <td>'.$pacientes->PAC_DIRECCION.'</td>
-                    <td>'.$pacientes->PAC_TELEFONO.'</td>
-                    <td>'.$pacientes->PAC_FECNACIMIENTO.'</td>
-                    <td>'.$pacientes->PAC_REGISTRO.'</td>
-                    <td>'.$pacientes->PAC_GENERO.'</td>
-                    <td>'.$pacientes->PAC_FOTO.'</td>
-                </tr>
-                ';
-        }
-    }
-
+    /**
+     * Método registrar un odontologo en un consultorio
+     */
     public function registroOdontologosControl(){
 
-        if (isset($_POST["guardar"])) {
-            echo "Datos encontrados";
-            $datosOdontologo = array($_POST["documento"],$_POST["tipoDocumento"],$_POST["nombres"],$_POST["apellidos"],$_POST["direccion"],$_POST["telefono"],$_POST["fecnacimiento"],$_POST["genero"]);
+        if (isset($_POST["btnRegistrar"])) {
+            
+            $datosOdontologo =  array('documento' =>$_POST['documento'], 
+                                      'tipoDocumento' =>$_POST['tipoDocumento'],
+                                      'primer_nombre' =>$_POST['primer_nombre'],
+                                      'segundo_nombre' =>$_POST['segundo_nombre'],
+                                      'primer_apellido' =>$_POST['primer_apellido'],
+                                      'segundo_apellido' =>$_POST['segundo_apellido'],
+                                      'direccion' =>$_POST['direccion'],
+                                      'telefono' =>$_POST['telefono'],
+                                      'especialidad' =>$_POST['especialidad'],
+                                      'fecnacimiento' =>$_POST['fecnacimiento'],
+                                      'fecregistro' =>$_POST['fecregistro'],
+                                      'genero' =>$_POST['genero'],
+                                      'foto' =>$_POST['foto'],
+              ); 
 
-            $rta = registrarOdontologoModelo($datosOdontologo);
 
-            echo $rta;
+            $rta = $this->objOdontologo->registrarOdontologoModelo($datosOdontologo);
+
+            if ($rta) {
+                echo "se registro sus datos";
+            }else{
+                echo "error al registrar";
+            }
+
+
+            //echo $rta;
         }
     }
 

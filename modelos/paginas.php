@@ -9,15 +9,15 @@ class Paginas{
 
 				break;
 			case 'listaOdontologos':
-				$ruta = "vistas/modulos/administrador/odontologo-busqueda.php";  
+				$ruta = "vistas/modulos/administrador/odontologo_busqueda.php";  
 				break;
 
 			case 'registrarOdontologo':
-				$ruta = "vistas/modulos/administrador/odontologo-registro.php";
+				$ruta = "vistas/modulos/administrador/odontologo_registro.php";
 				break;
 
 			case 'actualizarOdontologo':
-				$ruta = "vistas/modulos/administrador/odontologo-actualizar.php";
+				$ruta = "vistas/modulos/administrador/odontologo_actualizar.php";
 				break;
 
 			case 'listaPacientes':
