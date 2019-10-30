@@ -1,10 +1,22 @@
-<!-- <section class=" w-100"> -->
+
 	<ul class="sidebar navbar-nav">
-      <li class="nav-item active">
+      <!--<li class="nav-item active">
         <a class="nav-link" href="index.php?p=registrarConsultorio">
+        <a class="nav-link" href="index.php?p=listaConsultorios">
           <i class="fas fa-clinic-medical"></i>
           <span>Consultorio</span>
         </a>
+      </li>-->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-clinic-medical"></i>
+          <span>Consultorio</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <h6 class="dropdown-header">Administrar</h6>
+          <a class="dropdown-item" href="index.php?p=listaConsultorios">Lista</a>
+          <a class="dropdown-item" href="index.php?p=registrarConsultorio">Registrar</a>
+        </div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

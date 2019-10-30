@@ -27,7 +27,7 @@ class Controlador_odontologo
         if ($arOdontologos) {
 
             foreach ($arOdontologos as $odontologo) {
-                echo '
+                  echo '
                     <tr>
                         <td>'.$odontologo->ODO_ID.'</td>
                         <td>'.$odontologo->ODO_TIPO_ID.'</td>
@@ -43,8 +43,16 @@ class Controlador_odontologo
                         <td>'.$odontologo->ODO_GENERO.'</td>
                         <td>'.$odontologo->ODO_FOTO.'</td>
                         <td>
-                            <a class="botones" href="index.php?p=actualizarOdontologo"><acronym lang="es" title="Actualizar"><img src="vistas/img/editar.png" class="acciones"></acronym></a>
-                            <button type="button" class="botones" data-toggle="modal" data-target="#exampleModalCenter"><acronym lang="es" title="Eliminar"><img src="vistas/img/eliminar.png" class="acciones"></acronym></button>
+                            <a class="botones" href="index.php?p=buscarOdontologo&id='.$odontologo->ODO_ID.'">
+                              <acronym lang="es" title="Actualizar">
+                                <img src="vistas/img/editar.png" class="acciones">
+                              </acronym>
+                            </a>
+                            <button type="button" class="botones" data-toggle="modal" data-target="#exampleModalCenter">
+                              <acronym lang="es" title="Eliminar">
+                                <img src="vistas/img/eliminar.png" class="acciones">
+                              </acronym>
+                            </button>
                         </td>
                     </tr>';
             }
@@ -58,7 +66,7 @@ class Controlador_odontologo
     /**
      * Método para validar los campos del formulario de registro de odontologo
      * y guardarlos en un array asociativo y enviarlos al método 
-     * registrarOdontologoModelo()
+     * registroOdontologosControl()
      */
     public function registroOdontologosControl(){
 
@@ -76,7 +84,7 @@ class Controlador_odontologo
                                       'fecnacimiento' =>$_POST['fecnacimiento'],
                                       'fecregistro' =>$_POST['fecregistro'],
                                       'genero' =>$_POST['genero'],
-                                      'foto' =>$_POST['foto'],
+                                      'foto' =>$_POST['foto']
               ); 
 
             $rta = $this->objOdontologo->registrarOdontologoModelo($datosOdontologo);
@@ -92,11 +100,52 @@ class Controlador_odontologo
         }
     }
 
-    public function actualizarOdontologosControl(){
+
+    /**
+     * Método para buscar por el id del odontologo
+     * y guardarlos en un array asociativo y enviarlos al método 
+     * buscarOdontologosControl()
+     */
+    public function buscarOdontologosControl(){
         $dato = $_GET['id'];
-        $arOdontologo = buscarOdontologoModelo($dato);
+        $arOdontologo = $this->objOdontologo->buscarOdontologoModelo($dato);
         return $arOdontologo;
     }
+
+
+    public function actualizarOdontologoControl(){
+
+      if (isset($_POST['btnActualizar'])) {
+        
+        $id = $_POST['documento'];
+        $datosOdontologo =  array('documento' =>$_POST['documento'], 
+                                  'tipoDocumento' =>$_POST['tipoDocumento'],
+                                  'primer_nombre' =>$_POST['primer_nombre'],
+                                  'segundo_nombre' =>$_POST['segundo_nombre'],
+                                  'primer_apellido' =>$_POST['primer_apellido'],
+                                  'segundo_apellido' =>$_POST['segundo_apellido'],
+                                  'direccion' =>$_POST['direccion'],
+                                  'telefono' =>$_POST['telefono'],
+                                  'especialidad' =>$_POST['especialidad'],
+                                  'fecnacimiento' =>$_POST['fecnacimiento'],
+                                  'fecregistro' =>$_POST['fecregistro'],
+                                  'genero' =>$_POST['genero'],
+                                  'foto' =>$_POST['foto']
+        ); 
+
+        $rta = $this->objOdontologo->actualizarOdontologoModelo($datosOdontologo,$id);
+
+        if ($rta) {
+            echo "Se actualizó sus datos";
+        }else{
+            echo "Error al actualizar";
+        }
+            
+      }
+      
+    }
+
+
 
     public function eliminarOdontologoControl(){
         $dato = $_POST[''];

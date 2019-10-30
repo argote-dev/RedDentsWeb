@@ -10,9 +10,14 @@ class Controlador_consultorio
         $this->objConsultorio = new Consultorio_modelo();
     }
 
+    /**
+     * Método para validar los campos del formulario de registro de consultorio
+     * y guardarlos en un array asociativo y enviarlos al método 
+     * registrarConsultorioModelo()
+     */
     public function registroConsultoriosControl(){
 
-        if (isset($_POST["btnCrearConsultorio"])) {
+        if (isset($_POST["btnCrearConsultorio"])) {         
             
             $datosConsultorio =  array('id_consultorio' =>$_POST['id_consultorio'], 
                                       'usuario_id_consultorio' =>$_POST['usuario_id_consultorio'],
@@ -29,9 +34,43 @@ class Controlador_consultorio
             }else{
                 echo "error al registrar";
             }
+            
 
             //echo $rta;
         }
+    }
+
+    /**
+     * Método que a partir del método listarOdontologosModelo() puede obtener 
+     * un array con los odontologos para listarlo en una tabla o un valor 
+     * false con el cual enviara un mensaje 
+     */
+    public function listarConsultoriosControl(){
+
+        $arConsultorios = $this->objConsultorio->listarConsultoriosModelo();
+
+        if ($arConsultorios) {
+
+            foreach ($arConsultorios as $consultorio) {
+                echo '
+                    <tr>
+                        <td>'.$consultorio->CONS_ID.'</td>
+                        <td>'.$consultorio->USU_ID.'</td>
+                        <td>'.$consultorio->CONS_NIT.'</td>
+                        <td>'.$consultorio->CONS_NOMBRE.'</td>
+                        <td>'.$consultorio->CONS_DIRECCION.'</td>
+                        <td>'.$consultorio->CONS_TELEFONO.'</td>
+                        <td>
+                            <a class="botones" href="#"><acronym lang="es" title="Actualizar"><img src="vistas/img/editar.png" class="acciones"></acronym></a>
+                            <button type="button" class="botones" data-toggle="modal" data-target="#exampleModalCenter"><acronym lang="es" title="Eliminar"><img src="vistas/img/eliminar.png" class="acciones"></acronym></button>
+                        </td>
+                    </tr>';
+            }
+        }
+        else{
+            echo "<h3 style='color:red;'>No Hay Consultorios Registrados</h3>";
+        }
+        
     }
 
 }

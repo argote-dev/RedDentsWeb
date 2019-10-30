@@ -16,7 +16,7 @@ class Paginas{
 				$ruta = "vistas/modulos/administrador/odontologo_registro.php";
 				break;
 
-			case 'actualizarOdontologo':
+			case 'buscarOdontologo':
 				$ruta = "vistas/modulos/administrador/odontologo_actualizar.php";
 				break;
 
@@ -29,7 +29,11 @@ class Paginas{
 				break;
 				
 			case 'registrarConsultorio':
-				$ruta = "vistas/modulos/odontologo/consultorio-registrar.php"; 
+				$ruta = "vistas/modulos/odontologo/consultorio_registrar.php"; 
+				break;
+
+			case 'listaConsultorios': 
+				$ruta = "vistas/modulos/odontologo/consultorio_busqueda.php";  
 				break;
 			
 			default:

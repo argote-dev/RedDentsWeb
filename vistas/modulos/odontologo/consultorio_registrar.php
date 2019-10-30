@@ -33,7 +33,5 @@
 		$objControl->registroConsultoriosControl();
 	?>
 
-	<!--CONS_ID 	USU_ID 	CONS_NIT 	CONS_NOMBRE 	CONS_DIRECCION 	CONS_TELEFONO-->
-
 </body>
 </html>

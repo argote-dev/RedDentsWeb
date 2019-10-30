@@ -1,6 +1,7 @@
-<?php  
-	$objControl = new Controlador();
-  $datos = $objControl->actualizarOdontologosControl();
+<?php
+  require_once 'controladores/controlador-odontologo.php';
+	$objControl = new Controlador_odontologo();
+  $datos = $objControl->buscarOdontologosControl();
 
   $doc = $datos[0]->ODO_ID;
   $tipo_doc = $datos[0]->ODO_TIPO_ID;
@@ -21,7 +22,7 @@
 <section class="row">
         <div class="col-md-12">
           <div class="modal-registro">
-          <form method="POST" action='http://localhost/WEBSERVICES/actualizarOdontologo'>
+          <form method="POST">
             <legend class="subtitulos text-center">Actualizar Odontólogo</legend>
             <div class="form-row justify-content-around">
               <div class="col-md-6">
@@ -52,7 +53,7 @@
                 <div class="form-group row">
                   <label for="primer-nombre" class="col-md-4 col-form-label">Primer Nombre</label>
                   <div class="col-md-7">
-                    <input type="text" class="form-control" value="<?php echo $primer_nombre; ?>" id="primer-nombre" placeholder="Ingrese su primer nombre" name="primer-nombre">
+                    <input type="text" class="form-control" value="<?php echo $primer_nombre; ?>" id="primer-nombre" placeholder="Ingrese su primer nombre" name="primer_nombre">
                   </div>
                 </div>                   
               </div>
@@ -60,7 +61,7 @@
                 <div class="form-group row">
                   <label for="segundo-nombre" class="col-md-4 col-form-label">Segundo Nombre</label>
                   <div class="col-md-7">
-                    <input type="text" class="form-control" id="segundo-nombre" placeholder="Ingrese su segundo nombre" name="segundo-nombre" value="<?php echo $segundo_nombre; ?>">
+                    <input type="text" class="form-control" id="segundo-nombre" placeholder="Ingrese su segundo nombre" name="segundo_nombre" value="<?php echo $segundo_nombre; ?>">
                   </div>
                 </div>                   
               </div>
@@ -68,7 +69,7 @@
                 <div class="form-group row">
                   <label for="primer-apellido" class="col-md-4 col-form-label">Primer Apellido</label>
                   <div class="col-md-7">
-                    <input type="text" class="form-control" id="primer-apellido" placeholder="Ingrese su primer apellido" name="primer-apellido" value="<?php echo $primer_apellido; ?>">
+                    <input type="text" class="form-control" id="primer-apellido" placeholder="Ingrese su primer apellido" name="primer_apellido" value="<?php echo $primer_apellido; ?>">
                   </div>
                 </div>                
               </div>
@@ -76,7 +77,7 @@
                 <div class="form-group row">
                   <label for="segundo-apellido" class="col-md-4 col-form-label">Segundo Apellido</label>
                   <div class="col-md-7">
-                    <input type="text" class="form-control" id="segundo-apellido" placeholder="Ingrese su segundo apellido" name="segundo-apellido" value="<?php echo $segundo_apellido; ?>">
+                    <input type="text" class="form-control" id="segundo-apellido" placeholder="Ingrese su segundo apellido" name="segundo_apellido" value="<?php echo $segundo_apellido; ?>">
                   </div>
                 </div>                
               </div>
@@ -155,7 +156,7 @@
                 <div class="form-group row">                    
                     <div class="col-md-11 d-flex justify-content-end">
                      
-                      <button class="btn btn-outline-info" type="submit" name="actualizar">Actualizar</button>
+                      <button class="btn btn-outline-info" type="submit" name="btnActualizar">Actualizar</button>
                     
                     </div>  
                 </div>
@@ -163,25 +164,11 @@
             </div>   
           </form>
         </div>
-      </div>
-<!-- Modal Eliminar -->
-  <div class="modal fade modal-delete" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Eliminar<?php echo " ola"; ?></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ¿Estas seguro de eliminar ?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-info" data-dismiss="modal">No</button>
-          <a class="btn btn-outline-info" href="http://localhost/WEBSERVICES/eliminarOdontologo">Si</a>
-        </div>
-      </div>
-    </div>
-  </div>           
+      </div>          
 </section>
+
+<?php 
+  $objControl1 = new Controlador_odontologo();
+  $objControl1->actualizarOdontologoControl();
+
+?>
