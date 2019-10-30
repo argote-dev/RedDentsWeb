@@ -1,7 +1,7 @@
 <!-- <section class=" w-100"> -->
 	<ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="index.php?p=registrarConsultorio">
           <i class="fas fa-clinic-medical"></i>
           <span>Consultorio</span>
         </a>
@@ -13,12 +13,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Administrar</h6>
-          <a class="dropdown-item" href="index.php?p=listaOdontologos">Buscar</a>
+          <a class="dropdown-item" href="index.php?p=listaOdontologos">Lista</a>
           <a class="dropdown-item" href="index.php?p=registrarOdontologo">Registrar</a>
-          <a class="dropdown-item" href="index.php?p=actualizarOdontologo">Eliminar o Actualizar</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Other Pages:</h6>
-          <a class="dropdown-item" href="blank.html">Blank Page</a>
         </div>
       </li>
       <li class="nav-item dropdown">

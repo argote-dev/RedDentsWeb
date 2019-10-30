@@ -20,8 +20,9 @@
         </tr>
     </thead>
     <tbody>
-        <?php 
-          $objControl = new Controlador();
+        <?php
+          require_once'controladores/controlador-odontologo.php'; 
+          $objControl = new Controlador_odontologo();
           $objControl -> listarOdontologosControl();
         ?>
     </tbody>
@@ -44,7 +45,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-info" data-dismiss="modal">No</button>
           <form method="POST" action="http://localhost/WEBSERVICES/eliminarOdontologo">
-            <input type="hidden" name="id" value="<?php echo $odontologo->ODO_ID;?>">
+            <input type="hidden" name="id" value="<?php echo $doc;?>">
             <button type="submit" class="btn btn-outline-info">Si</button>
           </form>
         </div>

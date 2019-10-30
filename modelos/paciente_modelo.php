@@ -2,8 +2,8 @@
 
 	function listarPacientesModelo(){
 
-		$listaPacientesurl = "http://localhost/WEBSERVICES/listaPacientes";
-		//$listaPacientesurl = "http://localhost/WEBSERVICES/paciente.php?peticion=listaPacientes";
+		$listaPacientesurl = "http://localhost/PROYECTO_REDDENTS/WEBSERVICES/listaPacientes";
+		
 		
 		$listaPacientesjson = file_get_contents($listaPacientesurl);
 

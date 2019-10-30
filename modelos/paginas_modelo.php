@@ -1,14 +1,14 @@
 <?php 
 class Paginas{
 
-	public static function enlancePaginasModelo($pagina){
+	public static function enlacePaginasModelo($pagina){
 
 		switch ($pagina) {
 			case 'bienvenido':
 				$ruta = "vistas/modulos/administrador/bienvenido.php"; 
 
 				break;
-			case 'listaOdontologos':
+			case 'listaOdontologos': 
 				$ruta = "vistas/modulos/administrador/odontologo_busqueda.php";  
 				break;
 
@@ -26,6 +26,10 @@ class Paginas{
 
 			case 'registrarPacientes':
 				$ruta = "vistas/modulos/administrador/registro_paciente.php"; 
+				break;
+				
+			case 'registrarConsultorio':
+				$ruta = "vistas/modulos/odontologo/consultorio-registrar.php"; 
 				break;
 			
 			default:

@@ -143,8 +143,9 @@
       </div>           
 </section>
 
-<?php 
-$objControl = new Controlador();
+<?php
+require_once'controladores/controlador-odontologo.php'; 
+$objControl = new Controlador_odontologo();
 $objControl->registroOdontologosControl();
 
  ?>

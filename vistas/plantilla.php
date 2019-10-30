@@ -7,6 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
+  <!-- favicon -->
+  <link rel="shorcut icon" href="vistas/img/favicon.png">
   <!-- Custom fonts for this template-->
   <link href="vistas/css/all.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
@@ -39,7 +41,7 @@
       <div class="container contenedor"> 
         <?php 
           $objControl = new Controlador();
-          $objControl->enlancePaginasControl();
+          $objControl->enlacePaginasControl();
         ?>
       </div>
     </div>
