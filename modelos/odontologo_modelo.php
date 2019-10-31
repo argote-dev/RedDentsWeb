@@ -62,15 +62,17 @@ class Odontologo_modelo
 	}
 
 	public function actualizarOdontologoModelo($datos,$id){
-		
+
 		$datosJson = json_encode($datos);
 
 		$ch = curl_init();
 
 		curl_setopt($ch, CURLOPT_URL, "http://localhost/PROYECTO_REDDENTS/WEBSERVICES_REDDENTS/public/odontologos/actualizar/".$id);
 
-		curl_setopt($ch,CURLOPT_POST , TRUE);
-
+		//curl_setopt($ch,CURLOPT_PUT , TRUE);
+		
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT',);
+		
 		curl_setopt($ch,CURLOPT_POSTFIELDS , $datosJson);
 
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));

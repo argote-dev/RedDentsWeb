@@ -48,7 +48,7 @@ class Controlador_odontologo
                                 <img src="vistas/img/editar.png" class="acciones">
                               </acronym>
                             </a>
-                            <button type="button" class="botones" data-toggle="modal" data-target="#exampleModalCenter">
+                            <button onclick="" class="botones" data-toggle="modal" id='.$odontologo->ODO_ID.'" data-target="#exampleModalCenter">
                               <acronym lang="es" title="Eliminar">
                                 <img src="vistas/img/eliminar.png" class="acciones">
                               </acronym>
@@ -116,10 +116,10 @@ class Controlador_odontologo
     public function actualizarOdontologoControl(){
 
       if (isset($_POST['btnActualizar'])) {
-        
+
         $id = $_POST['documento'];
-        $datosOdontologo =  array('documento' =>$_POST['documento'], 
-                                  'tipoDocumento' =>$_POST['tipoDocumento'],
+
+        $datosOdontologo =  array('tipoDocumento' =>$_POST['tipoDocumento'],
                                   'primer_nombre' =>$_POST['primer_nombre'],
                                   'segundo_nombre' =>$_POST['segundo_nombre'],
                                   'primer_apellido' =>$_POST['primer_apellido'],
@@ -131,15 +131,21 @@ class Controlador_odontologo
                                   'fecregistro' =>$_POST['fecregistro'],
                                   'genero' =>$_POST['genero'],
                                   'foto' =>$_POST['foto']
-        ); 
+        );
 
-        $rta = $this->objOdontologo->actualizarOdontologoModelo($datosOdontologo,$id);
+        //var_dump($datosOdontologo);
 
-        if ($rta) {
-            echo "Se actualizó sus datos";
-        }else{
-            echo "Error al actualizar";
-        }
+        /**/
+          $rta = $this->objOdontologo->actualizarOdontologoModelo($datosOdontologo,$id);
+
+          echo $rta;
+
+          if ($rta) {
+              echo "Se actualizó sus datos";
+          }else{
+              echo "Error al actualizar";
+          }
+        
             
       }
       
